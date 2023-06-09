@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejercicio 7</title>
+</head>
+<body>
+  <!-- Paso 3: Crear una etiqueta <ol> para representar la lista numerada -->
+  <ol id="lista-paises">
+    <!-- Paso 4: Crear cinco elementos <li> -->
+    <li>
+      <!-- Primer hijo: botón "subir" -->
+      <button class="boton-subir">subir</button>
+      <!-- Segundo hijo: span con el nombre del país -->
+      <span>País 1</span>
+      <!-- Tercer hijo: botón "bajar" -->
+      <button class="boton-bajar">bajar</button>
+    </li>
+    <li>
+      <button class="boton-subir">subir</button>
+      <span>País 2</span>
+      <button class="boton-bajar">bajar</button>
+    </li>
+    <li>
+      <button class="boton-subir">subir</button>
+      <span>País 3</span>
+      <button class="boton-bajar">bajar</button>
+    </li>
+    <li>
+      <button class="boton-subir">subir</button>
+      <span>País 4</span>
+      <button class="boton-bajar">bajar</button>
+    </li>
+    <li>
+      <button class="boton-subir">subir</button>
+      <span>País 5</span>
+      <button class="boton-bajar">bajar</button>
+    </li>
+  </ol>
+
+  <script>
+    // Paso 6: Seleccionar todos los botones "subir" y "bajar"
+    var botonesSubir = document.querySelectorAll('.boton-subir');
+    var botonesBajar = document.querySelectorAll('.boton-bajar');
+
+    // Paso 7: Recorrer los botones con un bucle
+    botonesSubir.forEach(function(boton) {
+      // Paso 9: Asignar función al evento "click" para subir una posición
+      boton.addEventListener('click', function() {
+        var elementoLi = this.parentNode;
+        var elementoAnterior = elementoLi.previousElementSibling;
+
+        if (elementoAnterior) {
+          elementoAnterior.before(elementoLi);
+        }
+      });
+    });
+
+    botonesBajar.forEach(function(boton) {
+      // Paso 8: Asignar función al evento "click" para bajar una posición
+      boton.addEventListener('click', function() {
+        var elementoLi = this.parentNode;
+        var elementoSiguiente = elementoLi.nextElementSibling;
+
+        if (elementoSiguiente) {
+          elementoSiguiente.after(elementoLi);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
